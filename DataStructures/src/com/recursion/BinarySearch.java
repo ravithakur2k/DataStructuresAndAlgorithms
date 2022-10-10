@@ -4,22 +4,30 @@ import java.util.Arrays;
 
 public class BinarySearch {
 
-    public static Integer binarySearch(int[] arr, int searchNum) {
-        return binarySearchFromArr(arr, searchNum, 0, arr.length-1);
+    public static Integer binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        int middle = right - left / 2;
+
+        return binarySearchFromArr( left, right, middle, nums, target);
     }
 
-    private static Integer binarySearchFromArr(int[] nums, int target, int low, int high) {
-        if(low < high){
-            int mid = (low + high)/2;
-            if(nums[mid] == target) return mid;
-            else if(nums[mid] < target) return binarySearchFromArr(nums, target, mid+1, high);
-            else if(nums[mid] > target )return binarySearchFromArr(nums, target, low, mid-1);
+    private static Integer binarySearchFromArr(int left, int right, int middle, int[] nums, int target) {
+
+        if (left > right) return -1;
+        if (nums[middle] == target) return middle;
+        else{
+            if(target < nums[middle]) {
+                return binarySearchFromArr(left, middle-1, (middle-1)-left/2, nums, target);
+            }
+            else {
+                return binarySearchFromArr(middle+1, right, right-(middle+1)/2, nums, target);
+            }
         }
-        return -1;
     }
 
     public static void main(String arg[]) {
         BinarySearch binarySearch = new BinarySearch();
-        System.out.println(binarySearch.binarySearch(new int[]{-1,0,3,5,9,12}, 9));
+        System.out.println(binarySearch.binarySearch(new int[]{2,5}, 5));
     }
 }

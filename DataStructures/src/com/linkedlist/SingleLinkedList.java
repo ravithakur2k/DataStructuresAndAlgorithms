@@ -6,7 +6,7 @@ public class SingleLinkedList {
     private SingleNode tail;
     private int size;
 
-    public SingleNode SingleLinkedList(int nodeValue) {
+    public SingleNode createSingleLinkedList(int nodeValue) {
         head = new SingleNode();
         SingleNode node = new SingleNode();
         node.setValue(nodeValue);
@@ -44,25 +44,26 @@ public class SingleLinkedList {
     public void insertLinkedList(int nodeValue, int location) {
         SingleNode node = new SingleNode();
         node.setValue(nodeValue);
-        if (!existsLinkedList())
-            if (location == 0) {
-                node.setNext(head);
-                head = node;
-            } else if (location >= size) {
-                node.setNext(null);
-                tail = node;
-                tail.setNext(node);
-            } else {
-                SingleNode tempNode = head;
-                int index = 0;
-                while (index < location - 1) {
-                    tempNode = tempNode.next;
-                    index++;
-                }
-                SingleNode nextNode = tempNode.getNext();
-                node.setNext(nextNode);
-                tempNode.setNext(node);
+        if (!existsLinkedList()) {
+            return;
+        } else if (location == 0) {
+            node.setNext(head);
+            head = node;
+        } else if (location >= size) {
+            node.setNext(null);
+            tail = node;
+            tail.setNext(node);
+        } else {
+            SingleNode tempNode = head;
+            int index = 0;
+            while (index < location - 1) {
+                tempNode = tempNode.next;
+                index++;
             }
+            SingleNode nextNode = tempNode.getNext();
+            node.setNext(nextNode);
+            tempNode.setNext(node);
+        }
         setSize(getSize() + 1);
     }
 
@@ -103,13 +104,13 @@ public class SingleLinkedList {
             tempNode.setNext(null);
             tail = tempNode;
             setSize(getSize() - 1);
-        }else {
+        } else {
             SingleNode tempNode = head;
-            for(int i = 0 ; i < location - 1; i++){
+            for (int i = 0; i < location - 1; i++) {
                 tempNode = tempNode.getNext();
             }
             tempNode.setNext(tempNode.getNext().getNext());
-            setSize(getSize()-1);
+            setSize(getSize() - 1);
         }
     }
 }

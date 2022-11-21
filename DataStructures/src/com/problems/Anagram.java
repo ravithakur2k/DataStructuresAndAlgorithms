@@ -1,7 +1,5 @@
 package com.problems;
 
-import java.util.HashSet;
-
 public class Anagram {
 
     public static void main(String args[]) {

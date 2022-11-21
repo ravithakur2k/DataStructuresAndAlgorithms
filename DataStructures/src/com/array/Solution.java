@@ -4,15 +4,15 @@ import java.util.Map;
 
 public class Solution {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 //        rearrange(new int[]{1, -1, 3, 2, -7, -5, 11, 6 }, 8);
 //        romanToInt("III");
-        System.out.println(singleNum(new int[]{4,1,2,1,2}));
+        System.out.println(singleNum(new int[]{4, 1, 2, 1, 2}));
     }
 
-    public static int singleNum(int[] nums){
+    public static int singleNum(int[] nums) {
         int xor = 0;
-        for(int num: nums){
+        for (int num : nums) {
             xor ^= num;
         }
         return xor;

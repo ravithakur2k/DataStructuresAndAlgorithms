@@ -2,7 +2,7 @@ package com.array;
 
 public class Duplicates {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         removeDups(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4});
     }
 

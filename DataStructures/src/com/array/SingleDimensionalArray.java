@@ -51,10 +51,10 @@ public class SingleDimensionalArray {
         System.out.println(valueToSearch + " is not found!");
     }
 
-    public void deleteCell(int cellToBeDeleted){
-        try{
+    public void deleteCell(int cellToBeDeleted) {
+        try {
             arr[cellToBeDeleted] = Integer.MIN_VALUE;
-        }catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println();
             System.out.println("Cant delete the value as cell# provided is not in the range of array !");
         }

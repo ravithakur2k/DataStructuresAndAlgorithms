@@ -1,7 +1,5 @@
 package com.recursion;
 
-import java.util.Arrays;
-
 public class BinarySearch {
 
     public static Integer binarySearch(int[] nums, int target) {

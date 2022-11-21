@@ -1,8 +1,5 @@
 package com.problems;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class BuySellStocks {
 
     public static void main(String args[]) {

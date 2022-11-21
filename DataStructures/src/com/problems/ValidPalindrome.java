@@ -1,8 +1,5 @@
 package com.problems;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class ValidPalindrome {
 
     public static void main(String args[]) {

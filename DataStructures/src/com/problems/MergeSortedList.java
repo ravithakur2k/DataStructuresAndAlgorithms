@@ -1,7 +1,5 @@
 package com.problems;
 
-import java.util.List;
-
 public class MergeSortedList {
 
     public static void main(String args[]) {

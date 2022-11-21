@@ -2,8 +2,8 @@ package com.array;
 
 public class PlusOne {
 
-    public static void main(String args[]) {
-        plusOne(new int[]{8,9,9,9,9,9});
+    public static void main(String[] args) {
+        plusOne(new int[]{8, 9, 9, 9, 9, 9});
     }
 
     private static int[] plusOne(int[] digits) {

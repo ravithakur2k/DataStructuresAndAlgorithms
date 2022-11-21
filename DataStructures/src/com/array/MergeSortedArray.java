@@ -2,23 +2,23 @@ package com.array;
 
 public class MergeSortedArray {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         mergeWithoutExtraSpace(new int[]{2, 5, 6, 0, 0, 0}, 3, new int[]{1, 2, 3}, 3);
     }
 
-    public static void mergeWithoutExtraSpace(int[] nums1, int m, int[] nums2, int n){
+    public static void mergeWithoutExtraSpace(int[] nums1, int m, int[] nums2, int n) {
         int p1 = m - 1;
         int p2 = n - 1;
         int i = nums1.length - 1;
 
-        while(p1 >= 0 && p2 >= 0){
-            if(nums1[p1] > nums2[p2]){
+        while (p1 >= 0 && p2 >= 0) {
+            if (nums1[p1] > nums2[p2]) {
                 nums1[i--] = nums1[p1--];
             } else {
                 nums1[i--] = nums2[p2--];
             }
         }
-        while(p2 >= 0){
+        while (p2 >= 0) {
             nums1[i--] = nums2[p2--];
         }
     }
@@ -52,9 +52,7 @@ public class MergeSortedArray {
             k++;
         }
 
-        for (int l = 0; l < resultArr.length; l++) {
-            nums1[l] = resultArr[l];
-        }
+        System.arraycopy(resultArr, 0, nums1, 0, resultArr.length);
 
     }
 }

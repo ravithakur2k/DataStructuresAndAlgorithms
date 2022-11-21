@@ -1,7 +1,5 @@
 package com.problems;
 
-import com.sun.source.tree.Tree;
-
 public class BalancedBinaryTree {
 
 

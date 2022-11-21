@@ -50,9 +50,10 @@ public class SingleLinkedList {
             node.setNext(head);
             head = node;
         } else if (location >= size) {
+            tail.setNext(node);
             node.setNext(null);
             tail = node;
-            tail.setNext(node);
+
         } else {
             SingleNode tempNode = head;
             int index = 0;

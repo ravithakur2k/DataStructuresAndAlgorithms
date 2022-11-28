@@ -5,6 +5,13 @@ public class BinaryNode {
     BinaryNode left;
     BinaryNode right;
 
+    public BinaryNode() {
+    }
+
+    public BinaryNode(int value) {
+        this.value = value;
+    }
+
     public int getValue() {
         return value;
     }

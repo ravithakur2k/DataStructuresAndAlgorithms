@@ -108,4 +108,34 @@ public class BinaryTreeByLinkedList {
         return presentNode;
     }
 
+    // pre-order traversal of binary tree
+    void preOrder(BinaryNode node) {
+        if (node == null)
+            return;
+        System.out.print(node.getValue() + " ");
+        preOrder(node.getLeft());
+        preOrder(node.getRight());
+    }//end of method
+
+
+    // post-order traversal of binary tree
+    void postOrder(BinaryNode node) {
+        if (node == null)
+            return;
+        postOrder(node.getLeft());
+        postOrder(node.getRight());
+        System.out.print(node.getValue() + " ");
+    }//end of method
+
+
+    // in-order traversal of binary tree
+    void inOrder(BinaryNode node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.getLeft());
+        System.out.print(node.getValue() + " ");
+        inOrder(node.getRight());
+    }//end of method
+
 }

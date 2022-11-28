@@ -11,7 +11,8 @@ public class BinaryTreeByLinkedListMain {
         tree.insert(15);
         tree.insert(250);
         tree.insert(35);
+        tree.insert(222);
 
-        tree.getDeepestNode();
+        tree.inOrder(tree.root);
     }
 }

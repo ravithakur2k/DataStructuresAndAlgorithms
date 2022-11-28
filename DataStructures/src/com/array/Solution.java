@@ -1,13 +1,110 @@
 package com.array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Solution {
 
     public static void main(String[] args) {
-//        rearrange(new int[]{1, -1, 3, 2, -7, -5, 11, 6 }, 8);
-//        romanToInt("III");
-        System.out.println(singleNum(new int[]{4, 1, 2, 1, 2}));
+        intersect(new int[]{2, 2, 1, 1}, new int[]{2, 2});
+
+    }
+
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer> listA = new CopyOnWriteArrayList<>();
+        List<Integer> result = new ArrayList<>();
+        if (nums1.length < nums2.length) {
+            result = extracted(nums1, nums2, listA, result);
+        }else {
+            result = extracted(nums2, nums1, listA, result);
+        }
+        int[] finalResult = new int[result.size()];
+        for (int i = 0; i < finalResult.length; i++) {
+            finalResult[i] = result.get(i);
+        }
+        return finalResult;
+    }
+
+    private static List<Integer> extracted(int[] nums1, int[] nums2, List<Integer> listA, List<Integer> result) {
+        for (int num : nums2) {
+            listA.add(num);
+        }
+        for (int num : nums1) {
+            if (listA.contains(num)) {
+                result.add(num);
+                listA.remove(Integer.valueOf(num));
+            }
+        }
+        return result;
+    }
+
+    public static boolean isPowerOfThree(int n) {
+        return (n > 0) && 1162261467 % 3 == 0;
+    }
+
+    public static void moveZerosTwoPointers(int[] nums) {
+        int p1 = 0;
+        int p2 = 0;
+        while (p1 < nums.length) {
+            if (nums[p1] != 0) {
+                int temp = nums[p1];
+                nums[p1] = nums[p2];
+                nums[p2] = temp;
+                p1++;
+                p2++;
+            } else {
+                p1++;
+            }
+        }
+    }
+
+    public static void swap(int num1, int num2) {
+
+    }
+
+    public static void moveZeros(int[] nums) {
+        int countOfZero = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                countOfZero++;
+            } else if (countOfZero > 0) {
+                int t = nums[i];
+                nums[i] = 0;
+                nums[i - countOfZero] = t;
+            }
+        }
+    }
+
+    public static int missingNumberSorted(int[] nums) {
+        Arrays.sort(nums);
+        int i = 0;
+        for (i = 0; i < nums.length; i++) {
+            if (i != nums[i]) {
+                return i;
+            }
+        }
+        return i;
+    }
+
+    public static int missingNumberUsingSum(int[] nums) {
+        int sum = 0;
+        int i = 0;
+        for (i = 0; i < nums.length; i++) {
+            sum = sum + i - nums[i];
+        }
+        return sum + i;
+    }
+
+    public static int missingNumber(int[] nums) {
+        int xor = 0;
+        int i = 0;
+        for (i = 0; i < nums.length; i++) {
+            xor = xor ^ i ^ nums[i];
+        }
+        return xor ^ i;
     }
 
     public static int singleNum(int[] nums) {
